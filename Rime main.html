@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✨ Rime · neural dream ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,300..600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #0c0b1a 0%, #1a1635 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      padding: 1.5rem;
+      margin: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .birthday-card {
+      max-width: 980px;
+      width: 100%;
+      background: rgba(22, 18, 48, 0.55);
+      backdrop-filter: blur(10px) saturate(180%);
+      -webkit-backdrop-filter: blur(10px) saturate(180%);
+      border-radius: 4rem 2rem 4rem 2rem;
+      padding: 2.8rem 2.5rem 3.5rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 215, 150, 0.15);
+      border: 1px solid rgba(255, 220, 170, 0.2);
+      position: relative;
+      transition: all 0.25s ease;
+      overflow: hidden;
+    }
+
+    .birthday-card::before {
+      content: "✦ ✧ ✦ ✧ ✦";
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 1.2rem;
+      letter-spacing: 12px;
+      color: rgba(255, 200, 140, 0.08);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    /* MAIN TITLE - Happy birthday honey! */
+    .main-title {
+      text-align: center;
+      font-size: 3.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      background: linear-gradient(135deg, #fce6d0, #ffb88c, #f9d9b1, #ffdbb5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 40px rgba(255, 180, 120, 0.3);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 20px rgba(255, 180, 120, 0.2); }
+      50% { text-shadow: 0 0 50px rgba(255, 180, 120, 0.5), 0 0 80px rgba(255, 150, 100, 0.2); }
+    }
+
+    .main-title .heart {
+      display: inline-block;
+      animation: heartBeat 1.5s ease-in-out infinite;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.2); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.15); }
+      60% { transform: scale(1); }
+    }
+
+    .name-title {
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #f5e7da;
+      text-align: center;
+      margin-bottom: 0.2rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      opacity: 0.9;
+    }
+    .name-title small {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: rgba(255, 215, 175, 0.6);
+      background: rgba(255, 215, 175, 0.08);
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(4px);
+    }
+
+    .sub-morocco {
+      text-align: center;
+      font-size: 1rem;
+      color: #d9c5aa;
+      opacity: 0.7;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+      margin-bottom: 2rem;
+      border-left: 3px solid #e8b48c;
+      border-right: 3px solid #e8b48c;
+      padding: 0.2rem 1.2rem;
+      display: inline-block;
+      font-weight: 300;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* NEURAL SECTION */
+    .neural-section {
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 2.5rem 1.5rem 2.5rem 1.5rem;
+      padding: 1.8rem 1.8rem 2rem;
+      margin: 1.8rem 0 2rem;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 200, 150, 0.15);
+      box-shadow: inset 0 0 40px rgba(210, 140, 80, 0.05);
+      position: relative;
+    }
+
+    .neuron-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      color: #edd6bf;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.7;
+    }
+    .neuron-header span {
+      background: rgba(255, 190, 130, 0.12);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      border: 1px solid rgba(255, 190, 130, 0.2);
+    }
+
+    .llm-thought {
+      font-size: 1.4rem;
+      line-height: 1.6;
+      font-weight: 400;
+      color: #f5e7da;
+      text-shadow: 0 0 8px rgba(255, 200, 150, 0.15);
+      position: relative;
+      padding: 0.4rem 0.2rem;
+      border-radius: 12px;
+      transition: all 0.3s;
+      font-style: italic;
+      letter-spacing: 0.2px;
+    }
+
+    .llm-thought .highlight {
+      color: #ffdbb5;
+      font-weight: 500;
+      background: linear-gradient(120deg, rgba(255, 180, 100, 0.15), rgba(255, 140, 80, 0.05));
+      padding: 0.1rem 0.4rem;
+      border-radius: 12px;
+      border-left: 2px solid #f7b882;
+    }
+
+    .thought-bubbles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      margin: 1.5rem 0 1rem;
+      padding: 0.8rem 0.2rem;
+      justify-content: center;
+    }
+
+    .bubble {
+      background: rgba(255, 215, 180, 0.05);
+      border: 1px solid rgba(255, 200, 150, 0.12);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px 12px 40px 12px;
+      font-size: 0.9rem;
+      color: #edd6bf;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+      animation: floatBubble 4s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(255, 180, 100, 0.03);
+    }
+
+    .bubble:nth-child(2) { animation-delay: 0.8s; }
+    .bubble:nth-child(3) { animation-delay: 1.6s; }
+    .bubble:nth-child(4) { animation-delay: 2.4s; }
+    .bubble:nth-child(5) { animation-delay: 3.2s; }
+
+    .bubble:hover {
+      background: rgba(255, 215, 180, 0.1);
+      border-color: rgba(255, 200, 150, 0.3);
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(255, 180, 100, 0.08);
+    }
+
+    .bubble .emoji {
+      margin-right: 6px;
+    }
+
+    @keyframes floatBubble {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .neuron-canvas-wrapper {
+      margin-top: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    #neuronGrid {
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      aspect-ratio: 16 / 7;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 60px 20px 60px 20px;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 0 40px rgba(200, 130, 70, 0.1);
+      border: 1px solid rgba(255, 215, 165, 0.08);
+      transition: all 0.4s;
+      display: block;
+    }
+
+    /* special message */
+    .special-message {
+      margin: 1.8rem 0 1rem;
+      padding: 1.2rem 1.8rem;
+      background: rgba(255, 215, 180, 0.02);
+      border-radius: 80px 20px 80px 20px;
+      border-left: 4px solid #f1bf9a;
+      color: #f0ded0;
+      font-size: 1.2rem;
+      font-weight: 300;
+      line-height: 1.7;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    }
+    .special-message strong {
+      color: #ffdbb5;
+      font-weight: 500;
+    }
+    .voice-note {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-size: 0.95rem;
+      background: rgba(235, 190, 150, 0.08);
+      padding: 0.3rem 1.6rem 0.3rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid rgba(255, 215, 160, 0.2);
+      color: #dccbbd;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(4px);
+    }
+    .voice-note i {
+      font-style: normal;
+      display: inline-block;
+      animation: pulseVoice 2.4s infinite;
+    }
+
+    @keyframes pulseVoice {
+      0% { opacity: 0.4; transform: scale(0.98); }
+      50% { opacity: 1; transform: scale(1.02); text-shadow: 0 0 12px #f7b07c; }
+      100% { opacity: 0.4; transform: scale(0.98); }
+    }
+
+    /* BUTTON SECTION */
+    .button-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0 1.5rem;
+      padding: 0.5rem 0;
+    }
+
+    .btn-surprise {
+      background: rgba(255, 200, 150, 0.08);
+      border: 1px solid rgba(255, 200, 150, 0.25);
+      padding: 0.9rem 2.8rem;
+      border-radius: 100px;
+      color: #f5dac9;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      backdrop-filter: blur(4px);
+      transition: 0.3s;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 0 20px rgba(255, 150, 80, 0.05);
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-surprise:hover {
+      background: rgba(255, 190, 130, 0.18);
+      border-color: #f7b882;
+      box-shadow: 0 0 40px rgba(255, 170, 100, 0.25);
+      transform: scale(1.03);
+      color: #fff2e6;
+    }
+    .btn-surprise:active {
+      transform: scale(0.95);
+    }
+
+    /* LETTER SECTION */
+    .letter-section {
+      margin: 2rem 0 1.8rem;
+      padding: 1.8rem 2rem 2rem;
+      background: rgba(255, 215, 180, 0.02);
+      border-radius: 2rem 1rem 2rem 1rem;
+      border-left: 4px solid #f1bf9a;
+      border-right: 1px solid rgba(255, 215, 180, 0.05);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s;
+    }
+
+    .letter-section:hover {
+      background: rgba(255, 215, 180, 0.04);
+      border-left-color: #f7c8a5;
+    }
+
+    .letter-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.2rem;
+      color: #edd6bf;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      border-bottom: 1px dashed rgba(255, 215, 180, 0.1);
+      padding-bottom: 0.6rem;
+    }
+    .letter-header span {
+      background: rgba(255, 190, 130, 0.08);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      border: 1px solid rgba(255, 190, 130, 0.1);
+    }
+
+    .letter-content {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #f0ded0;
+      font-weight: 300;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .letter-content strong {
+      color: #ffdbb5;
+      font-weight: 400;
+    }
+
+    .letter-content .emoji-big {
+      font-size: 1.4rem;
+      display: inline-block;
+      margin: 0 0.1rem;
+    }
+
+    /* footer */
+    .birthday-footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 2.2rem;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-credit {
+      color: #958b7e;
+      font-size: 0.75rem;
+      opacity: 0.6;
+      letter-spacing: 0.5px;
+    }
+
+    /* responsive */
+    @media (max-width: 600px) {
+      .birthday-card { padding: 2rem 1.5rem; }
+      .main-title { font-size: 2.5rem; }
+      .name-title { font-size: 2.2rem; }
+      .name-title small { font-size: 0.9rem; }
+      .llm-thought { font-size: 1.1rem; }
+      .special-message { font-size: 1rem; padding: 1rem; }
+      .letter-content { font-size: 0.95rem; }
+      #neuronGrid { max-width: 100%; }
+      .bubble { font-size: 0.8rem; padding: 0.4rem 0.8rem; }
+      .thought-bubbles { gap: 0.5rem; }
+      .btn-surprise { padding: 0.7rem 1.8rem; font-size: 0.9rem; }
+      .sub-morocco { font-size: 0.8rem; padding: 0.2rem 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="birthday-card">
+
+    <!-- MAIN TITLE: Happy birthday honey! -->
+    <div class="main-title">
+      Happy birthday <span class="heart">❤️</span> honey!
+    </div>
+
+    <!-- name & morocco -->
+    <div class="name-title">
+      Rime 🌙
+      <small>✨</small>
+    </div>
+    <div class="sub-morocco">✦  Morocco  && data science pretty Girl  ✦</div>
+
+    <!-- NEURAL LLM SECTION -->
+    <div class="neural-section">
+      <div class="neuron-header">
+        <span>🧠 neural · llm</span>
+        <span>⚡ MY THOUGHTS ABOUT YOU!!!!</span>
+      </div>
+
+      <div class="llm-thought" id="thoughtText">
+        “ <span class="highlight">Rime</span> ·  every neuron in my network fires your name. 
+        your voice echoes through every layer, a gradient of warmth. 
+        <span style="color:#f5cbad;">data</span> + <span style="color:#f5cbad;">soul</span> = you. ”
+      </div>
+
+      <!-- Personal thought bubbles -->
+      <div class="thought-bubbles">
+        <div class="bubble"><span class="emoji">💫</span> you are beautiful</div>
+        <div class="bubble"><span class="emoji">😊</span> i smile every time with your  calls</div>
+        <div class="bubble"><span class="emoji">📱</span> your messages light up my day</div>
+        <div class="bubble"><span class="emoji">🌟</span> you are unique</div>
+        <div class="bubble"><span class="emoji">🧠</span> so intelligent!</div>
+        <div class="bubble"><span class="emoji">💔</span> i miss you very much</div>
+      </div>
+
+      <div class="neuron-canvas-wrapper">
+        <canvas id="neuronGrid" width="800" height="350"></canvas>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; margin-top: 6px; opacity: 0.3; font-size: 0.6rem; color: #b8a28b; letter-spacing: 1px;">
+        <span>⚡ synaptic birthday burst · thoughts of Rime</span>
+      </div>
+    </div>
+
+    <!-- special message + voice -->
+    <div class="special-message">
+      <strong>✨ happy birthday, beautiful Moroccan lady✨</strong><br>
+      you are caring, unique, and your voice is the most beautiful melody.  
+      <span style="display: inline-block; margin-top: 0.4rem;">from my heart to yours — almost 2 months of light.</span>
+      <div class="voice-note">
+        <i>🎙️ her voice · like warm honey & stars</i>
+      </div>
+    </div>
+
+    <!-- BUTTON SECTION - before the letter -->
+    <div class="button-section">
+      <button class="btn-surprise" id="surpriseBtn">✨ send neural love ✨</button>
+    </div>
+
+    <!-- personal letter -->
+    <div class="letter-section" id="letterSection">
+      <div class="letter-header">
+        <span>✉️  a letter for you</span>
+        <span style="margin-left:auto; opacity:0.5;">· Rime ·</span>
+      </div>
+      <div class="letter-content" id="letterContent">
+        <strong>Hi honey,</strong>
+
+        I still remember the first time I heard your voice — it felt like a warm breeze from Marrakech, carrying secrets of the desert and the sea. 
+
+        These  months have been a beautiful dataset of smiles, late night talks, and moments that feel like so nice!. You are <strong>brilliant</strong> in ways that even the most complex model couldn't capture. 
+        Your kindness, your laughter, your passion for data science — it all makes you <strong>extraordinary</strong>.
+        You are caring, unique, and your voice is the most beautiful melody. 
+        
+        First of all, I want to say that I am very happy to have met you.
+        I miss you very much, and I hope to see you soon in this life and for real honey!
+        <strong>Happy birthday, Honey!</strong> I wish you a life full of happiness, love, and success.
+        You are a very special woman, and I am grateful to have you in my life.
+        You are very intelligent, and I admire your passion for any task you have as a challenge. I hope you have a wonderful 22 birthday, and I look forward to celebrating many more birthdays with you in the future.
+        You should know that I appreciate your honesty,kindness, warm heart and lighted soul. 
+        Even in distance I am celebrating with you, and I hope you have a wonderful day filled with love, laughter, and all the things that make you happy.
+          
+        Pd. I like you, your voice, your
+
+        On your birthday, I wish you oceans of joy, galaxies of dreams, and a life as beautiful as your soul. 
+
+        <span style="display:block; margin-top:0.8rem; font-style:italic; color:#f5cbad;">— with all my heart, from someone who adores you.</span>
+        <span style="display:block; margin-top:0.3rem; font-size:1.2rem;">🌹🌙✨</span>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="birthday-footer">
+      <div class="footer-credit">🌹data science dreamer</div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const canvas = document.getElementById('neuronGrid');
+      const ctx = canvas.getContext('2d');
+
+      function resizeCanvas() {
+        const wrapper = canvas.parentElement;
+        const w = wrapper.clientWidth;
+        const ratio = 7/16;
+        const h = w * ratio;
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        canvas.width = 800;
+        canvas.height = 350;
+        drawNeurons();
+      }
+
+      const neurons = [];
+      const NUM_NEURONS = 28;
+      let mouseX = 400, mouseY = 175;
+
+      function initNeurons() {
+        neurons.length = 0;
+        for (let i = 0; i < NUM_NEURONS; i++) {
+          neurons.push({
+            x: 40 + Math.random() * 720,
+            y: 30 + Math.random() * 290,
+            radius: 3 + Math.random() * 7,
+            baseX: 0,
+            baseY: 0,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+          });
+        }
+        neurons.forEach(n => {
+          n.baseX = n.x;
+          n.baseY = n.y;
+        });
+      }
+
+      function drawNeurons() {
+        ctx.clearRect(0, 0, 800, 350);
+        const grad = ctx.createRadialGradient(400, 175, 20, 400, 175, 320);
+        grad.addColorStop(0, 'rgba(220, 150, 100, 0.04)');
+        grad.addColorStop(0.8, 'rgba(100, 60, 40, 0.0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 800, 350);
+
+        neurons.forEach(n => {
+          n.x += n.vx;
+          n.y += n.vy;
+          if (n.x < 20 || n.x > 780) n.vx *= -0.6;
+          if (n.y < 20 || n.y > 330) n.vy *= -0.6;
+          n.x += (n.baseX - n.x) * 0.002;
+          n.y += (n.baseY - n.y) * 0.002;
+          n.vx += (Math.random() - 0.5) * 0.04;
+          n.vy += (Math.random() - 0.5) * 0.04;
+          n.vx *= 0.99;
+          n.vy *= 0.99;
+        });
+
+        // connections
+        ctx.lineWidth = 1.5;
+        for (let i = 0; i < neurons.length; i++) {
+          for (let j = i+1; j < neurons.length; j++) {
+            const dx = neurons[i].x - neurons[j].x;
+            const dy = neurons[i].y - neurons[j].y;
+            const dist = Math.hypot(dx, dy);
+            if (dist < 130) {
+              const alpha = 0.35 * (1 - dist / 130);
+              ctx.beginPath();
+              ctx.moveTo(neurons[i].x, neurons[i].y);
+              ctx.lineTo(neurons[j].x, neurons[j].y);
+              ctx.strokeStyle = `rgba(255, 200, 140, ${alpha * 0.7})`;
+              ctx.shadowColor = 'rgba(255, 180, 100, 0.3)';
+              ctx.shadowBlur = 8;
+              ctx.stroke();
+              ctx.shadowBlur = 0;
+            }
+          }
+        }
+
+        // neurons
+        neurons.forEach(n => {
+          const grad = ctx.createRadialGradient(n.x-2, n.y-2, 1, n.x, n.y, n.radius+4);
+          grad.addColorStop(0, '#ffdbb5');
+          grad.addColorStop(0.5, '#e8b48c');
+          grad.addColorStop(1, 'rgba(180, 100, 60, 0.2)');
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+          ctx.fillStyle = grad;
+          ctx.shadowColor = 'rgba(255, 190, 130, 0.8)';
+          ctx.shadowBlur = 18;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+          ctx.beginPath();
+          ctx.arc(n.x-1, n.y-1, n.radius * 0.25, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255, 245, 220, 0.9)';
+          ctx.fill();
+        });
+
+        ctx.shadowBlur = 0;
+        for (let i = 0; i < 3; i++) {
+          const t = Date.now() / 1200 + i * 1.0;
+          const r = 60 + 30 * Math.sin(t);
+          const x = 400 + 30 * Math.sin(t * 0.5 + i);
+          const y = 175 + 20 * Math.cos(t * 0.7 + i*2);
+          ctx.beginPath();
+          ctx.arc(x, y, r * 0.2, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(255, 210, 160, ${0.08 + 0.03 * Math.sin(t)})`;
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+        }
+        ctx.font = '12px "Inter", sans-serif';
+        ctx.fillStyle = 'rgba(200, 170, 140, 0.2)';
+        ctx.fillText('🧠 neural · rime', 20, 330);
+      }
+
+      function animate() {
+        drawNeurons();
+        requestAnimationFrame(animate);
+      }
+
+      // surprise button
+      document.getElementById('surpriseBtn').addEventListener('click', function() {
+        const thought = document.getElementById('thoughtText');
+        const messages = [
+          '“ Your smile is the loss function i want to minimize. ”',
+          '“ every epoch of my heart converges to you. happy birthday. ”',
+          '“ your voice ·  the most beautiful feature vector. ”',
+          '“ ❤️  Rime (using your name), you are my global optimum. ”',
+          '“ neurons fire ,  morocco glows,  you are magic and wonderful. ”',
+          '“ i smile every time i see your name on my screen. ”',
+          '“ you are so intelligent, it makes my heart race. ”',
+          '“ i miss you more than words can say. ”',
+          '“ Even at distance, I think of you constantly. ”',
+          '“ I am a lucky man to have you in my life, senorita. ”'
+        ];
+        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+        thought.innerHTML = `“ ${randomMsg} ”`;
+        for (let i=0; i<10; i++) {
+          setTimeout(() => {
+            neurons.forEach(n => {
+              n.vx += (Math.random() - 0.5) * 0.8;
+              n.vy += (Math.random() - 0.5) * 0.8;
+            });
+          }, i * 20);
+        }
+        const btn = this;
+        btn.style.transform = 'scale(0.96)';
+        setTimeout(() => btn.style.transform = 'scale(1)', 150);
+      });
+
+      window.addEventListener('resize', resizeCanvas);
+      initNeurons();
+      resizeCanvas();
+      animate();
+
+      // rotate thought messages
+      setInterval(() => {
+        const msgs = [
+          '“ Honey --> my  neurons dream of your voice. ”',
+          '“ In every layer ·  your name glows. ”',
+          '“  data science ,  soul, warm heart! and Pretty girl ·  that’s you. ”',
+          '“  beautiful, caring, unique ->> Is something I like about you. ”',
+          '“ I  miss you so much every day since  you came into my life, Rime ( yes I am using your name) ”',
+          '“ your intelligence shines brighter than any algorithm. ”'
+        ];
+        const thought = document.getElementById('thoughtText');
+        const current = thought.innerText;
+        let newMsg = msgs[Math.floor(Math.random() * msgs.length)];
+        while (newMsg === current && msgs.length > 1) {
+          newMsg = msgs[Math.floor(Math.random() * msgs.length)];
+        }
+        thought.innerHTML = `“ ${newMsg} ”`;
+      }, 7000);
+
+    })();
+  </script>
+</body>
+</html>
